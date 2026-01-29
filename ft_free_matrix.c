@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
+/*   ft_free_matrix.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cbrito-s <cbrito-s>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/28 11:46:36 by cbrito-s          #+#    #+#             */
-/*   Updated: 2024/10/28 12:20:08 by cbrito-s         ###   ########.fr       */
+/*   Created: 2025/06/17 17:30:37 by cbrito-s          #+#    #+#             */
+/*   Updated: 2025/06/17 17:34:31 by cbrito-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	*ft_free_matrix(char **arr)
 {
-	if (lst && new)
+	int	i;
+
+	if (!arr)
+		return (NULL);
+	i = 0;
+	while (arr[i])
 	{
-		new->next = *lst;
-		*lst = new;
+		untrack_pointer(arr[i]);
+		i++;
 	}
+	untrack_pointer(arr);
+	return (NULL);
 }
